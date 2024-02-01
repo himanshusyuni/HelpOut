@@ -12,7 +12,7 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SignUp from "./Sign-Up";
 
-export function Login() {
+export function Login({setCurrPage}) {
   return (
     <div className="w-screen h-screen flex items-center justify-center">
       <Tabs defaultValue="login" className="w-[400px]">
@@ -27,7 +27,7 @@ export function Login() {
               <CardDescription>
                 Enter your credentials to login to your account
               </CardDescription>
-              <div className="pt-6 pt-0 grid gap-4">
+              <div className="pt-6 grid gap-4">
                 <div className="grid grid-cols-2 gap-6">
                   <Button variant="outline" size="default"
                   className="hover:bg-purple-400/50">
@@ -64,11 +64,11 @@ export function Login() {
             </CardHeader>
             <CardContent className="space-y-2">
               <div className="space-y-1">
-                <Label htmlFor="username">Username</Label>
+                <Label htmlFor="email">E-mail</Label>
                 <Input
-                  id="username"
-                  type="text"
-                  placeholder="Enter your username"
+                  id="email"
+                  type="email"
+                  placeholder="Enter your email"
                 />
               </div>
               <div className="space-y-1">
@@ -84,6 +84,7 @@ export function Login() {
               <Button
                 type="submit"
                 className="w-full transition ease-in-out delay-150 hover:bg-purple-500 duration-300 hover:origin-top"
+                onClick={()=> setCurrPage("homePage")}
               >
                 Login
               </Button>
