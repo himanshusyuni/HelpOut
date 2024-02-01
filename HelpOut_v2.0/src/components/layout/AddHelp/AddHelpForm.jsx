@@ -46,7 +46,7 @@ const formSchema = z.object({
   }),
 });
 
-const AddHelpForm = () => {
+const AddHelpForm = ( { setCurrPage }) => {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -59,7 +59,10 @@ const AddHelpForm = () => {
     },
   });
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+  
+      
+  };
 
   return (
     <div className="z-0 p-3 bg-red-100 border-2 m-3 rounded-md">
@@ -188,10 +191,11 @@ const AddHelpForm = () => {
             <Button
               type="submit"
               className="w-full transition ease-in-out delay-150 hover:scale-110 hover:bg-purple-500 duration-300 hover:origin-top"
+              onClick={()=> setCurrPage("homePage")}
             >
               Submit
             </Button>
-          </form>
+          </form>   
         </Form>
       </div>
     </div>
