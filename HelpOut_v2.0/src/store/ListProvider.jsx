@@ -9,9 +9,9 @@ function ListProvider({ children }) {
       Profile:
         "https://tse1.mm.bing.net/th?id=OIP.VzOnkxCRm3IVkbbU5s8OyQHaH8&pid=Api&P=0&h=220",
       College: "DTU",
-      Help: "Internship",
-      Deadline: "26/01/2024 9:15 AM",
-      Commision: 10,
+      Request: "Internship",
+      deadline: "9:15 2024.10.01",
+      amount: 10,
       Explain:
         "I have attached the file to this email for your convenience. If it's possible, I would appreciate it if you could print [number of copies needed] copies of the document. Additionally, please let me know if there are any specific printing instructions or preferences I should be aware of.",
       Contact: "9999129349",
@@ -24,9 +24,9 @@ function ListProvider({ children }) {
       Profile:
         "https://tse1.mm.bing.net/th?id=OIP.grsJGeTjezxHVy7TT0ebSQAAAA&pid=Api&P=0&h=220",
       College: "DTU",
-      Help: "Medicines",
-      Deadline: "25/01/2024 9:15 AM",
-      Commision: 10,
+      Request: "Medicines",
+      deadline: "9:15 2024.10.01",
+      amount: 10,
       Explain:
         "I have attached the file to this email for your convenience. If it's possible, I would appreciate it if you could print [number of copies needed] copies of the document. Additionally, please let me know if there are any specific printing instructions or preferences I should be aware of.",
       Contact: "9999129349",
@@ -39,9 +39,9 @@ function ListProvider({ children }) {
       Profile:
         "https://tse2.mm.bing.net/th?id=OIP.sWJVwhv8BcCG2w6HeBPtQgHaJ0&pid=Api&P=0&h=220",
       College: "DTU",
-      Help: "Korean",
-      Deadline: "27/01/2024 9:15 AM",
-      Commision: 60,
+      Request: "Korean",
+      deadline:"9:15 2024.10.01",
+      amount: 60,
       Explain:
         "I have attached the file to this email for your convenience. If it's possible, I would appreciate it if you could print [number of copies needed] copies of the document. Additionally, please let me know if there are any specific printing instructions or preferences I should be aware of.",
       Contact: "9999129349",
