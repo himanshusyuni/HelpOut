@@ -25,7 +25,6 @@ function App() {
           <Filter />
         </div>
         <div className="mt-8 ml-5">
-
         <Home />
         </div>
       </div>}
