@@ -14,7 +14,7 @@ import SignUp from "./Sign-Up";
 
 export function Login({setCurrPage}) {
   return (
-    <div className="w-screen h-screen flex items-center justify-center">
+    <div className="w-screen h-screen flex items-center justify-center bg-gradient-to-r from-red-500 to-blue-500">
       <Tabs defaultValue="login" className="w-[400px]">
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="login">Login</TabsTrigger>
@@ -92,15 +92,7 @@ export function Login({setCurrPage}) {
           </Card>
         </TabsContent>
         <TabsContent value="sign-up">
-          <Card>
-            <CardHeader>
-              <CardTitle>Create an account</CardTitle>
-              <CardDescription>
-                Welcome to HelpOut!
-              </CardDescription>
-            </CardHeader>
-            <SignUp />
-          </Card>
+          <SignUp />
         </TabsContent>
       </Tabs>
     </div>

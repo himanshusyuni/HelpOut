@@ -1,33 +1,96 @@
 import logo from "../pictures/logo.jpg";
 import { IoIosSearch } from "react-icons/io";
-import { IoMdNotifications } from "react-icons/io";
-import { CgProfile } from "react-icons/cg";
+import { Bell, Menu } from "lucide-react";
+import { Input } from "./ui/input";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
 function Header() {
   return (
-    <>
-      <div className="fixed bg-white w-full p-2 flex justify-between shadow-lg ">
-        <img src={logo} alt="HelpOut" className="h-[75px]" />
-        <form className="flex border-2 h-10 w-[500px] m-4 rounded-full pl-2 font-semibold ">
-          <IoIosSearch className=" pl-1 h-10 w-6 pb-1 mr-2 " />
-          <input
-            type="text"
-            className=" w-full h-9 pl-3 pr-10 text-sm  outline-none bg-slate-50 focus:bg-white rounded-full"
-            placeholder="Search  "
-          />
-        </form>
-        <div className="flex justify-between mr-8 mt-2 ">
-          <div className="mr-5 mt-0">
-            <CgProfile className="size-9 " />
-            <p className="text-xs font-bold mt-[1px] mr-1"> Profile</p>
-          </div>
-          <div className="m-2 mt-0">
-            <IoMdNotifications className="size-9 ml-1.5" />
-            <p className="text-xs font-bold"> Requests</p>
-          </div>
+    <header>
+      <div className="fixed bg-white w-full p-4 flex items-center justify-between shadow-2xl h-[80px] z-50">
+        <div className="ml-2">
+          <img src={logo} alt="HelpOut" className="h-10 w-20" />
         </div>
+        <div className="w-1/2">
+          <form>
+            <Input type="text" icon={<IoIosSearch />} placeholder="Search" />
+          </form>
+        </div>
+
+        <div className="flex flex-row justify-between mr-3 items-center gap-10">
         
+          <div>
+            <Bell className="size-9" />
+          </div>
+
+          {/* dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" className="rounded-full w-2">
+                <Avatar>
+                  <AvatarImage
+                    src="https://github.com/shadcn.png"
+                    alt="@shadcn"
+                  />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+              <DropdownMenuGroup>
+                <DropdownMenuItem>
+                  Profile
+                  <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  Settings
+                  <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+              <DropdownMenuSeparator />
+              <DropdownMenuGroup>
+                <DropdownMenuSub>
+                  <DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>
+                  <DropdownMenuPortal>
+                    <DropdownMenuSubContent>
+                      <DropdownMenuItem>Email</DropdownMenuItem>
+                      <DropdownMenuItem>Message</DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem>More...</DropdownMenuItem>
+                    </DropdownMenuSubContent>
+                  </DropdownMenuPortal>
+                </DropdownMenuSub>
+
+              </DropdownMenuGroup>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>About</DropdownMenuItem>
+              <DropdownMenuItem>Support</DropdownMenuItem>
+              <DropdownMenuItem disabled>paisa</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>
+                Log out
+                <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
-    </>
+    </header>
   );
 }
 export default Header;
