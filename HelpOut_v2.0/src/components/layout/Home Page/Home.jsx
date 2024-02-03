@@ -4,6 +4,19 @@ import { RequestCard } from "./RequestCard";
 import CreatePost from "./CreatePost";
 import Filter from "./Filters";
 
+<<<<<<< HEAD
+function Home() {
+  const {activeListData} = useContext(ActiveList);
+  return (
+    <>
+      <div>
+        {activeListData.map((items) => (
+          <RequestCard
+            key={items.id} 
+            postData={items}
+          />
+        ))}
+=======
 function Home({ setCurrPage }) {
   const List = useContext(ActiveList);
   return (
@@ -30,6 +43,7 @@ function Home({ setCurrPage }) {
             <Filter setCurrPage={setCurrPage} />
           </div>
         </div>
+>>>>>>> main
       </div>
     </body>
   );
