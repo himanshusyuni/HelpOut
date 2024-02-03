@@ -21,8 +21,8 @@ import {
 
 function Header() {
   return (
-    <>
-      <div className="fixed bg-white w-full p-4 flex items-center justify-between shadow-2xl h-[80px]">
+    <header>
+      <div className="fixed bg-white w-full p-4 flex items-center justify-between shadow-2xl h-[80px] z-50">
         <div className="ml-2">
           <img src={logo} alt="HelpOut" className="h-10 w-20" />
         </div>
@@ -90,7 +90,7 @@ function Header() {
           </DropdownMenu>
         </div>
       </div>
-    </>
+    </header>
   );
 }
 export default Header;

@@ -19,6 +19,14 @@ import { FaLocationDot } from "react-icons/fa6";
 import { MdNotes } from "react-icons/md";
 import { IoTimeOutline } from "react-icons/io5";
 import { InfoCard } from "./InfoCard";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const formSchema = z.object({
   description: z
@@ -46,7 +54,7 @@ const formSchema = z.object({
   }),
 });
 
-const AddHelpForm = ( { setCurrPage }) => {
+const AddHelpForm = ({ setCurrPage }) => {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -59,146 +67,158 @@ const AddHelpForm = ( { setCurrPage }) => {
     },
   });
 
-  const handleSubmit = () => {
-  
-      
-  };
+  const handleSubmit = () => {};
 
   return (
-    <div className="z-0 p-3 bg-red-100 border-2 m-3 rounded-md">
-      <div className="flex flex-col items-center justify-between p-10 border-2 m-10 rounded-lg shadow-2xl shadow-indigo-500 bg-white drop-shadow-2xl">
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(handleSubmit)}
-            className="max-w-md w-full flex flex-col gap-4"
-          >
-            <FormField
-              control={form.control}
-              name="description"
-              label="description"
-              render={({ field }) => {
-                return (
-                  <FormItem>
-                    <FormLabel>Description</FormLabel>
-                    <FormControl className="hover:shadow-md">
-                      <Input
-                        icon={<MdNotes />}
-                        placeholder="To help us spread the word"
-                        type="text"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                );
-              }}
-            />
+    <body className="relative">
+      {/* <Card>
+        <CardHeader>
+          <CardTitle>Card Title</CardTitle>
+          <CardDescription>Card Description</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p>Card Content</p>
+        </CardContent>
+        <CardFooter>
+          <p>Card Footer</p>
+        </CardFooter>
+      </Card> */}
 
-            <FormField
-              control={form.control}
-              name="venue"
-              label="venue"
-              render={({ field }) => {
-                return (
-                  <FormItem>
-                    <FormLabel>Venue</FormLabel>
-                    <FormControl>
-                      <Input
-                        icon={<FaLocationDot />}
-                        placeholder="Where you'd recieve your order"
-                        type="text"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                );
-              }}
-            />
-
-            <FormField
-              control={form.control}
-              name="compensation"
-              label="compensation"
-              render={() => {
-                return (
-                  <FormItem>
-                    <FormLabel>Compensation</FormLabel>
-                    <FormControl>
-                      <AmountInput />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                );
-              }}
-            />
-
-            <FormField
-              control={form.control}
-              name="date"
-              label="date"
-              render={() => {
-                return (
-                  <FormItem>
-                    <FormLabel>Date</FormLabel>
-                    <FormControl>
-                      <DatePicker />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                );
-              }}
-            />
-
-            <FormField
-              control={form.control}
-              name="time"
-              label="time"
-              render={() => {
-                return (
-                  <FormItem>
-                    <FormLabel>Time</FormLabel>
-                    <FormControl>
-                      {/* <Input type="time" icon={<IoTimeOutline />}/> */}
-                      <TimePicker />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                );
-              }}
-            />
-
-            <FormField
-              control={form.control}
-              name="documents"
-              label="documents"
-              render={() => {
-                return (
-                  <FormItem>
-                    <div className="flex flex-row justify-between items-center">
-                      <FormLabel>Documents</FormLabel>
-                      <InfoCard />
-                    </div>
-                    <FormControl>
-                      <InputFile />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                );
-              }}
-            />
-
-            <Button
-              type="submit"
-              className="w-full transition ease-in-out delay-150 hover:scale-110 hover:bg-purple-500 duration-300 hover:origin-top"
-              onClick={()=> setCurrPage("homePage")}
+      <div className="p-3 bg-red-100 border-2 m-3 rounded-m">
+        <div className="flex flex-col items-center justify-between p-10 border-2 m-10 rounded-lg shadow-2xl shadow-indigo-500 bg-white">
+          <Form {...form}>
+            <form
+              onSubmit={form.handleSubmit(handleSubmit)}
+              className="max-w-md flex flex-col gap-4"
             >
-              Submit
-            </Button>
-          </form>   
-        </Form>
+              <FormField
+                control={form.control}
+                name="description"
+                label="description"
+                render={({ field }) => {
+                  return (
+                    <FormItem>
+                      <FormLabel>Description</FormLabel>
+                      <FormControl className="hover:shadow-md">
+                        <Input
+                          icon={<MdNotes />}
+                          placeholder="To help us spread the word"
+                          type="text"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  );
+                }}
+              />
+
+              <FormField
+                control={form.control}
+                name="venue"
+                label="venue"
+                render={({ field }) => {
+                  return (
+                    <FormItem>
+                      <FormLabel>Venue</FormLabel>
+                      <FormControl>
+                        <Input
+                          icon={<FaLocationDot />}
+                          placeholder="Where you'd recieve your order"
+                          type="text"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  );
+                }}
+              />
+
+              <FormField
+                control={form.control}
+                name="compensation"
+                label="compensation"
+                render={() => {
+                  return (
+                    <FormItem>
+                      <FormLabel>Compensation</FormLabel>
+                      <FormControl>
+                        <AmountInput />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  );
+                }}
+              />
+
+              <FormField
+                control={form.control}
+                name="date"
+                label="date"
+                render={() => {
+                  return (
+                    <FormItem>
+                      <FormLabel>Date</FormLabel>
+                      <FormControl>
+                        <DatePicker />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  );
+                }}
+              />
+
+              <FormField
+                control={form.control}
+                name="time"
+                label="time"
+                render={() => {
+                  return (
+                    <FormItem>
+                      <FormLabel>Time</FormLabel>
+                      <FormControl>
+                        {/* <Input type="time" icon={<IoTimeOutline />}/> */}
+                        <TimePicker />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  );
+                }}
+              />
+
+              <FormField
+                control={form.control}
+                name="documents"
+                label="documents"
+                render={() => {
+                  return (
+                    <FormItem>
+                      <div className="flex flex-row justify-between items-center">
+                        <FormLabel>Documents</FormLabel>
+                        <InfoCard />
+                      </div>
+                      <FormControl>
+                        <InputFile />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  );
+                }}
+              />
+
+              <Button
+                type="submit"
+                className="w-full transition ease-in-out delay-150 hover:scale-110 hover:bg-purple-500 duration-300 hover:origin-top"
+                onClick={() => setCurrPage("homePage")}
+              >
+                Submit
+              </Button>
+            </form>
+          </Form>
+        </div>
       </div>
-    </div>
+    </body>
   );
 };
 
