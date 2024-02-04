@@ -17,30 +17,30 @@ function Filter({setCurrPage}) {
         <CreatePost setCurrPage={setCurrPage}/>
         <Card className="border-none">
           <CardHeader>
-            <CardTitle>Jo karna hai</CardTitle>
-            <CardDescription>Card Description</CardDescription>
+            <CardTitle className="text-center">Pending  Work</CardTitle>
+            <hr className="shadow-sm"/>
+            <CardDescription></CardDescription>
           </CardHeader>
           <CardContent>
-            {[1, 2, 3].map((item) => (
-              <p key={item}>Card Content</p>
-            ))}
+           <p className="text-center text-sm">No work</p>
           </CardContent>
 
           <CardFooter>
-              hi
+              
           </CardFooter>
         </Card>
         <Separator />
         <Card className="border-none">
           <CardHeader>
-            <CardTitle>Jo karwana hai</CardTitle>
-            <CardDescription>Card Description</CardDescription>
+            <CardTitle className="text-center">Your Requests</CardTitle>
+            <hr className="shadow-sm" />
+            <CardDescription></CardDescription>
           </CardHeader>
           <CardContent>
-            <p>Card Content</p>
+            <p className="text-center text-sm">No Requests</p>
           </CardContent>
           <CardFooter>
-            <p>Card Footer</p>
+            <p></p>
           </CardFooter>
         </Card>
       </div>

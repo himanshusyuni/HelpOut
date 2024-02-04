@@ -85,12 +85,12 @@ const AddHelpForm = ({ setCurrPage }) => {
         </CardFooter>
       </Card> */}
 
-      <div className="p-3 bg-red-100 border-2 m-3 rounded-m fixed z-[70] left-[20%] top-[2%]  ">
+      <div className="p-3 bg-red-100 border-2 m-3 rounded-m fixed z-[70] left-[20%] top-[%]  ">
         <div className="flex flex-col items-center justify-between p-10 border-2 m-10 rounded-lg shadow-2xl shadow-indigo-500 bg-white">
-          <Form {...form}>
+          <Form {...form} >
             <form
               onSubmit={form.handleSubmit(handleSubmit)}
-              className="max-w-md flex flex-col gap-4"
+              className="max-w-md flex flex-col gap-4 "
             >
               <FormField
                 control={form.control}
