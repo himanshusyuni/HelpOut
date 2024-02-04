@@ -1,13 +1,8 @@
-import { useContext } from "react";
-import ActiveList from "../../../store/ActiveList";
 import { RequestCard } from "./RequestCard";
-import CreatePost from "./CreatePost";
 import Filter from "./Filters";
 
 
-function Home({ setCurrPage }) {
-  const List = useContext(ActiveList);
-  
+function Home({ setCurrPage }) {  
   return (
   
       <div className="bg-gradient-to-r from-gray-500 to-zinc-500">

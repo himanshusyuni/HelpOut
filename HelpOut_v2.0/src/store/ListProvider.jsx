@@ -40,7 +40,7 @@ function ListProvider({ children }) {
         "https://tse2.mm.bing.net/th?id=OIP.sWJVwhv8BcCG2w6HeBPtQgHaJ0&pid=Api&P=0&h=220",
       College: "DTU",
       Request: "Korean",
-      deadline:"9:15 2024.10.01",
+      deadline: "9:15 2024.10.01",
       amount: 60,
       Explain:
         "I have attached the file to this email for your convenience. If it's possible, I would appreciate it if you could print [number of copies needed] copies of the document. Additionally, please let me know if there are any specific printing instructions or preferences I should be aware of.",
@@ -50,7 +50,6 @@ function ListProvider({ children }) {
     },
   ];
 
-  
   const ActiveListReducer = (currActiveList, action) => {
     let newActiveList = currActiveList;
     if (action.type === "deletePost") {
@@ -87,7 +86,12 @@ function ListProvider({ children }) {
 
   return (
     <ActiveList.Provider
-      value={{ activeListData:ActiveListData, postAdder:postAdder, postDeleter:postDeleter, idCnt:idCnt }}
+      value={{
+        activeListData: ActiveListData,
+        postAdder: postAdder,
+        postDeleter: postDeleter,
+        idCnt: idCnt,
+      }}
     >
       {children}
     </ActiveList.Provider>
