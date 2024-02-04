@@ -21,14 +21,13 @@ import {
 
 function Header() {
   return (
-    <header>
-      <div className="fixed bg-white w-full p-4 flex items-center justify-between shadow-2xl h-[80px] z-50">
+      <div className="fixed bg-white w-full p-4 flex items-center justify-between shadow-2xl h-[85px] to-zinc-500 border-b-2 border-b-slate-500 z-50">
         <div className="ml-2">
-          <img src={logo} alt="HelpOut" className="h-10 w-20" />
+          <img src={logo} alt="HelpOut" className="h-20 w-50 ml-[-10px] mb-1" />
         </div>
         <div className="w-1/2">
           <form>
-            <Input type="text" icon={<IoIosSearch />} placeholder="Search" />
+            <Input type="text" icon={<IoIosSearch />} placeholder="Search"  className="rounded-full bg-slate-50 focus:bg-white border-2 shadow-sm placeholder:font-semibold"/>
           </form>
         </div>
 
@@ -41,10 +40,10 @@ function Header() {
           {/* dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="rounded-full w-2">
-                <Avatar>
+              <Button variant="outline" className="rounded-full w-3">
+                <Avatar className="size-11">
                   <AvatarImage
-                    src="https://github.com/shadcn.png"
+                    src="https://media.licdn.com/dms/image/D4D03AQFlutSIT9RAHw/profile-displayphoto-shrink_800_800/0/1673764856312?e=1712188800&v=beta&t=zYZ3rvR0QBGqUaHmFkolib-nLmnUR5a0pgKfGQ3oqLY"
                     alt="@shadcn"
                   />
                   <AvatarFallback>CN</AvatarFallback>
@@ -90,7 +89,7 @@ function Header() {
           </DropdownMenu>
         </div>
       </div>
-    </header>
+
   );
 }
 export default Header;
