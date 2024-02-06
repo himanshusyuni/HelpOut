@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useMemo } from "react";
 import { Filter } from "lucide-react";
 import {
   CaretSortIcon,
@@ -44,17 +44,26 @@ import {
 import { Skeleton } from "@/components/ui/skeleton";
 import ActiveList from "@/store/ActiveList";
 import DetailsPage from "./DetailsPage";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+import {DateTime} from 'luxon'
 
-// Component using the dummy data and columns
 export function RequestCard() {
   const [sorting, setSorting] = React.useState([]);
   const [columnFilters, setColumnFilters] = React.useState([]);
   const [columnVisibility, setColumnVisibility] = React.useState({});
   const [rowSelection, setRowSelection] = React.useState({});
   const { activeListData } = useContext(ActiveList);
-  const data = activeListData;
+  const data = useMemo(() => activeListData, []);
   const [CurrDisplay, setDisplay] = useState(false);
-  const [RowData,setRowData] =useState({});
+  const [RowData, setRowData] = useState({});
 
   const calculateRemainingTime = (deadline) => {
     const deadlineDate = new Date(deadline);
@@ -249,6 +258,7 @@ export function RequestCard() {
   ];
 
   const table = useReactTable({
+    usePagination: true,
     data,
     columns,
     onSortingChange: setSorting,
@@ -367,6 +377,38 @@ export function RequestCard() {
               )}
             </TableBody>
           </Table>
+          <div className="p-4 flex">
+            <Pagination>
+              <PaginationContent className="flex flex-row gap-4">
+                <PaginationItem>
+                  <PaginationLink onClick={() => table.setPageIndex(0)}>
+                    First
+                  </PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                <Button
+                    onClick={() => table.previousPage()}
+                    disabled={!table.getCanPreviousPage()}
+                  > Previous</Button>
+                </PaginationItem>
+
+                <PaginationItem>
+                  <Button
+                    onClick={() => table.nextPage()}
+                    disabled={!table.getCanNextPage()}
+                  > Next</Button>
+                </PaginationItem>
+
+                <PaginationItem>
+                  <PaginationLink
+                    onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+                  >
+                    Last
+                  </PaginationLink>
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </div>
         </div>
       </div>
     </>
