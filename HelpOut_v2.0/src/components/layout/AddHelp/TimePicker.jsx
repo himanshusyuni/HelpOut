@@ -19,11 +19,11 @@ export function TimePicker() {
         <Button
           variant={"outline"}
           className={cn(
-            "w-full justify-start text-left font-normal",
+            "w-full justify-start text-left font-normal text-xl",
             !time && "text-muted-foreground"
           )}
         >
-          <IoTimeOutline className="mr-2 h-4 w-4" />
+          <IoTimeOutline className="mr-2 h-5 w-5" />
           {time ? <span>{time}</span> : <span>Pick a time</span>}
         </Button>
       </PopoverTrigger>

@@ -1,6 +1,6 @@
 import logo from "../pictures/logo.jpg";
 import { IoIosSearch } from "react-icons/io";
-import { Bell, Menu } from "lucide-react";
+import { Bell, Menu, Search } from "lucide-react";
 import { Input } from "./ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -21,26 +21,24 @@ import {
 
 function Header({ setCurrPage }) {
   return (
-    <div className="fixed bg-white w-full p-4 flex items-center justify-between shadow-2xl h-[85px] to-zinc-500 border-b-2 border-b-slate-500 z-50">
+    <div className="fixed bg-white w-full p-4 flex items-center justify-between shadow-2xl h-[85px] border-b-2 border-b-slate-500 z-50">
       <div className="ml-2">
         <img src={logo} alt="HelpOut" className="h-20 w-50 ml-[-10px] mb-1" />
       </div>
       <div className="w-1/2">
-        <form>
           <Input
             type="text"
-            icon={<IoIosSearch />}
-            placeholder="Search"
-            className="rounded-full bg-slate-50 focus:bg-white border-2 shadow-sm placeholder:font-semibold focus-visible:ring-purple-500"
+            size="lg"
+            icon={<Search className="size-5" />}
+            placeholder=" Search"
+            className="w-full text-xl border-input bg-transparent rounded-full focus:outline-none focus:ring-2 focus-visible:ring-purple-500 focus:border-transparent focus:ring-opacity-50 hover:ring-2 hover:ring-opacity-50 transition-all duration-300 ease-in-out"
           />
-        </form>
       </div>
 
       <div className="flex flex-row justify-between mr-3 items-center gap-10">
         <div>
           <Bell className="size-9" />
         </div>
-
         {/* dropdown */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
