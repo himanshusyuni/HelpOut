@@ -34,8 +34,11 @@ export const registerSchema = z.object({
     .max(100),
   college: z.string().min(2).max(100),
   password: z.string().min(8).max(100),
-  confirmPassword: z.string().min(8).max(100),
-});
+  confirmPassword: z.string(),
+}).refine(data => data.password === data.confirmPassword, {
+  message: "Passwords do not match",
+  path: ["confirmPassword"],
+})
 
 const SignUp = () => {
   const [formStep, setFormStep] = useState(0);
@@ -52,15 +55,11 @@ const SignUp = () => {
     },
   });
 
-  const onSubmit = (data) => {
-    if (data.confirmPassword !== data.password) {
-      toast({
-        title: "Passwords do not match",
-        variant: "destructive",
-        description: "Please check your passwords",
-      });
-      return;
-    }
+  const onSubmit = async (data) => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    form.reset();
+
     alert(JSON.stringify(data, null, 4));
     console.log(data);
   };
@@ -263,3 +262,53 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
+// export default SignUp;
+
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors, isSubmitting },
+  //   reset,
+  //   control,
+  // } = useForm({
+  //   resolver: zodResolver(SignUpSchema),
+  // });
+
+  // const onSubmit = async (data) => {
+  //   //Submit to server
+  //   await new Promise((resolve) => setTimeout(resolve, 1000));
+
+  //   reset();
+  // };
+
+  // return (
+  //   <>
+  //     <form className="flex flex-col gap-3" onSubmit={handleSubmit(onSubmit)}>
+  //       <input
+  //         {...register("email")}
+  //         type="email"
+  //         placeholder="Email"
+  //       />
+  //       {errors.email && <p>{errors.email.message}</p>}
+  //       <input
+  //         {...register("password")}
+  //         type="password"
+  //         placeholder="Password"
+  //       />
+  //       {errors.password && <p>{errors.password.message}</p>}
+
+  //       <input
+  //         {...register("confirmPassword")}
+  //         type="password"
+  //         placeholder="Confirm Password"
+  //       />
+  //       {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
+  //       <button
+  //         type="submit"
+  //         disabled={isSubmitting}
+  //         className="bg-blue-500 odapcoaslmc"
+  //       >
+  //         submit
+  //       </button>
+  //     </form>

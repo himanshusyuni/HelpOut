@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Toaster } from "@/components/ui/toaster";
 
 function App() {
-  const [currPage, setCurrPage] = useState("loginPage");
+  const [currPage, setCurrPage] = useState("homePage");
 
   return (
     <>
