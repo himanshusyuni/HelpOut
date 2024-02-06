@@ -17,7 +17,7 @@ function DetailsPage({ rowData, setDisplay }) {
   }).format(rowData.amount);
   return (
     <>
-      <Card className=" fixed z-[60] ml-[20%] t-1 h-[500px]   min-w-[670px] w-[80%] mt-[-6%]  bg-slate-200 border-2 border-red-400 shadow-lg overflow-x-hidden ">
+      <Card className=" fixed z-[60] ml-[20%] t-1 h-[500px]   min-w-[670px] w-[80%] mt-[-6%]  bg-slate-200 ring-2  ring-blue-500  shadow-lg overflow-x-hidden ">
         <div className="relative">
           <CardHeader>
             <CardTitle className="text-center itlaic text-2xl font-bold font-serif ">

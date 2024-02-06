@@ -19,7 +19,7 @@ function App() {
       )}
       {(currPage === "homePage" || currPage === "createPost") && (
         <ListProvider>
-          <Header />
+          <Header setCurrPage={setCurrPage}  />
           {currPage === "homePage" && <Home setCurrPage={setCurrPage} />}
           {currPage === "createPost" && (
             <AddHelpForm setCurrPage={setCurrPage} />
